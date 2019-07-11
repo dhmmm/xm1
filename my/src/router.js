@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 
+import  Movie  from './views/Movie.vue'
+import Cinema  from './views/Cinema.vue'
+import User  from './views/User.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -10,8 +14,30 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect:{ name: 'home'}
+    },
+    {
+      path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      children:[
+        {
+          path: '/home/movie',
+          name: 'movie',
+          component: Movie
+        },
+        {
+          path: '/home/cinema',
+          name: 'cinema',
+          component: Cinema
+        },
+        {
+          path: '/home/user',
+          name: 'user',
+          component: User
+        },
+        
+      ]
     },
     {
       path: '/about',
