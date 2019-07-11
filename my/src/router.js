@@ -5,6 +5,9 @@ import Home from './views/Home.vue'
 import  Movie  from './views/Movie.vue'
 import Cinema  from './views/Cinema.vue'
 import User  from './views/User.vue'
+import Nowplay from './components/nowplay.vue'
+import ComList from './components/ComList.vue'
+import Detail from './components/Detail.vue'
 
 Vue.use(Router)
 
@@ -14,8 +17,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect:{ name: 'home'}
+      redirect:{ name: 'movie'}
     },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
+    },
+
     {
       path: '/home',
       name: 'home',
@@ -24,7 +33,21 @@ export default new Router({
         {
           path: '/home/movie',
           name: 'movie',
-          component: Movie
+          component: Movie,
+          children:[
+            {
+              path: '/home/movie/now',
+              name: 'nowplay',
+              component: Nowplay
+            },
+            {
+              path: '/home/movie/coming',
+              name: 'comList',
+              component: ComList
+            },
+
+          ]
+
         },
         {
           path: '/home/cinema',

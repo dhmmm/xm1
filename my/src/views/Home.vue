@@ -1,34 +1,52 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
-    <Nowplay />
-=======
     hello
     <router-view></router-view>
-
     <ul class="footer">
-      <li><router-link to="/home/movie"> 电影</router-link></li>
-      <li>    <router-link to="/home/cinema"> 影院</router-link></li>
-      <li>    <router-link to="/home/user"> 我的</router-link></li>
+      <li>
+        <router-link to="/home/movie">
+        <span class="iconfont icon-dianying"></span>
+         <span class="move">电影</span>
+        </router-link>
+      </li>
+      <li>
+      <router-link to="/home/cinema"> 
+      <span class="iconfont icon-yingyuana"></span>
+       <span  class="move">影院</span>
+      </router-link>
+      </li>
+
+      <li>
+        <router-link to="/home/user"> 
+          <span class="iconfont icon-wode"></span>
+          <span  class="move">我的</span>
+        </router-link>
+      </li>
     </ul>
->>>>>>> d9ce2b648e6dd65bada7957a3ac56ae0c5378113
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Nowplay from '@/components/nowplay.vue'
 
 export default {
   name: 'home',
   components: {
-    Nowplay
+   
   }
 }
 </script>
 <style>
 @import '../assets/css/reset.css';
-.footer{position: fixed;bottom: 0;width: 100%;border-top: 1px solid #ccc;}
-.footer li{float: left;width: 33.3%;line-height:0.96rem ;}
+.footer{position: fixed;bottom: 0;width: 100%;border-top: 1px solid #ccc; text-align: center;background: #fff;}
+.footer li{float: left;width: 33.3%;}
+.iconfont{position: relative;top:0;font-size: 0.5rem;}
+.footer a{
+  display: inline-block;width: 100%;color: #797d82;line-height: 1rem;position: relative;
+}
+.move{width: 100%;display: inline-block;position: absolute;top:0.36rem;left:0;}
+.footer .router-link-active{color: #f03d37;}
+
 </style>
 
