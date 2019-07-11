@@ -1,0 +1,13 @@
+module.exports={
+    devServer:{
+        proxy:{
+            "/my":{
+                "target":"https://m.maoyan.com",
+                "changeOrigin":true,
+                "pathRewrite":{
+                    "^/my":"/"
+                }
+            }
+        }
+    }
+}
