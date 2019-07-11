@@ -5,6 +5,9 @@ import Home from './views/Home.vue'
 import  Movie  from './views/Movie.vue'
 import Cinema  from './views/Cinema.vue'
 import User  from './views/User.vue'
+import Nowplay from './components/nowplay.vue'
+import ComList from './components/ComList.vue'
+import Detail from './components/Detail.vue'
 
 import Nowplay from './components/nowplay.vue'
 import Mtlogin from './components/mtlogin.vue'
@@ -20,8 +23,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect:{ name: 'home'}
+      redirect:{ name: 'movie'}
     },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
+    },
+
     {
       path: '/home',
       name: 'home',
@@ -32,6 +41,7 @@ export default new Router({
           path: '/home/movie',
           name: 'movie',
           component: Movie,
+<<<<<<< HEAD
           redirect:{ name: 'nowplay'},
           children:[
               {//正在热映
@@ -40,6 +50,22 @@ export default new Router({
                   component:Nowplay,
               }
           ]
+=======
+          children:[
+            {
+              path: '/home/movie/now',
+              name: 'nowplay',
+              component: Nowplay
+            },
+            {
+              path: '/home/movie/coming',
+              name: 'comList',
+              component: ComList
+            },
+
+          ]
+
+>>>>>>> e72a45995949a3e2aee00e4448236cbe1bde7438
         },
         {
           path: '/home/cinema',
