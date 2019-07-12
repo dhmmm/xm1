@@ -5,7 +5,6 @@ import Home from './views/Home.vue'
 import  Movie  from './views/Movie.vue'
 import Cinema  from './views/Cinema.vue'
 import User  from './views/User.vue'
-import Nowplay from './components/nowplay.vue'
 import ComList from './components/ComList.vue'
 import Detail from './components/Detail.vue'
 
@@ -13,7 +12,6 @@ import Nowplay from './components/nowplay.vue'
 import Mtlogin from './components/mtlogin.vue'
 import Phologin from './components/phologin.vue'
 import Buy from './components/buy.vue'
-import Detail from './components/detail.vue'
 
 Vue.use(Router)
 
@@ -24,6 +22,7 @@ export default new Router({
     {
       path: '/',
       redirect:{ name: 'movie'}
+      //   redirect:{ name: 'home'}
     },
     {
       path: '/detail',
@@ -35,37 +34,25 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: Home,
-      redirect:{ name: 'movie'},
+      // redirect:{ name: 'movie'},
       children:[
         {
           path: '/home/movie',
           name: 'movie',
           component: Movie,
-<<<<<<< HEAD
           redirect:{ name: 'nowplay'},
           children:[
               {//正在热映
                   path:'/home/movie/nowplay',
                   name:'nowplay',
                   component:Nowplay,
-              }
+              },
+              {
+                  path: '/home/movie/coming',
+                  name: 'comList',
+                  component: ComList
+              },
           ]
-=======
-          children:[
-            {
-              path: '/home/movie/now',
-              name: 'nowplay',
-              component: Nowplay
-            },
-            {
-              path: '/home/movie/coming',
-              name: 'comList',
-              component: ComList
-            },
-
-          ]
-
->>>>>>> e72a45995949a3e2aee00e4448236cbe1bde7438
         },
         {
           path: '/home/cinema',
@@ -98,11 +85,11 @@ export default new Router({
         name:'buy',
         component:Buy,
       },
-      {
-          path:'/detail',
-          name:'detail',
-          component:Detail,
-      },
+      // {
+      //     path:'/detail',
+      //     name:'detail',
+      //     component:Detail,
+      // },
 
     {
       path: '/about',

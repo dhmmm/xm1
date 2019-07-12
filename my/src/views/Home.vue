@@ -1,19 +1,13 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
-
-=======
-    hello
->>>>>>> e72a45995949a3e2aee00e4448236cbe1bde7438
     <router-view></router-view>
-    <ul class="footer">
-<<<<<<< HEAD
-      <li><router-link to="/home/movie"> 电影</router-link></li>
-      <li><router-link to="/home/cinema"> 影院</router-link></li>
-        <li><router-link to="/user"> 我的</router-link></li>
+    <!--<ul class="footer">-->
+      <!--<li><router-link to="/home/movie"> 电影</router-link></li>-->
+      <!--<li><router-link to="/home/cinema"> 影院</router-link></li>-->
+        <!--<li><router-link to="/user"> 我的</router-link></li>-->
+    <!--</ul>-->
 
-    </ul>
-=======
+    <ul class="footer">
       <li>
         <router-link to="/home/movie">
         <span class="iconfont icon-dianying"></span>
@@ -28,14 +22,13 @@
       </li>
 
       <li>
-        <router-link to="/home/user"> 
+        <router-link to="/user">
           <span class="iconfont icon-wode"></span>
           <span  class="move">我的</span>
         </router-link>
       </li>
     </ul>
 
->>>>>>> e72a45995949a3e2aee00e4448236cbe1bde7438
   </div>
 </template>
 
@@ -44,21 +37,17 @@
 
 export default {
   name: 'home',
-<<<<<<< HEAD
-
-=======
   components: {
    
   }
->>>>>>> e72a45995949a3e2aee00e4448236cbe1bde7438
 }
 </script>
 <style>
 @import '../assets/css/reset.css';
-<<<<<<< HEAD
+
 .footer{background:#fff; position: fixed;bottom: 0;width: 100%;border-top: 1px solid #ccc;}
 .footer li{float: left;width: 33.3%;line-height:0.96rem ;}
-=======
+
 .footer{position: fixed;bottom: 0;width: 100%;border-top: 1px solid #ccc; text-align: center;background: #fff;}
 .footer li{float: left;width: 33.3%;}
 .iconfont{position: relative;top:0;font-size: 0.5rem;}
@@ -68,6 +57,5 @@ export default {
 .move{width: 100%;display: inline-block;position: absolute;top:0.36rem;left:0;}
 .footer .router-link-active{color: #f03d37;}
 
->>>>>>> e72a45995949a3e2aee00e4448236cbe1bde7438
 </style>
 

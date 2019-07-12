@@ -35,17 +35,11 @@ export default {
     created(){
         this.$axios.get("/my/ajax/movieOnInfoList?token=").then((res)=>{
            this.movieList=res.data.movieList
-             })
-        this.$axios.get("/my/ajax/moreComingList?token=&movieIds=1205779%2C1203673%2C1235560%2C1204589%2C1219932%2C1240752%2C346172%2C246061%2C346559%2C1211270").then((res)=>{
-            var arr=res.data.coming;
-            this.movieList=this.movieList.concat(arr);
-        })
-        this.$axios.get("/my/ajax/moreComingList?token=&movieIds=345797%2C557244%2C1204720%2C1229894%2C338400%2C1229020%2C1234116%2C1260459%2C1218727%2C1281623").then((res)=>{
-            var arr1=res.data.coming;
-            this.movieList=this.movieList.concat(arr1);
-            console.log(this.movieList)
-
-        })
+          })
+//        this.$axios.get("/my/ajax/moreComingList?token=&movieIds=1205779%2C1203673%2C1235560%2C1204589%2C1219932%2C1240752%2C346172%2C246061%2C346559%2C1211270").then((res)=>{
+//            var arr=res.data.coming;
+//            this.movieList=this.movieList.concat(arr);
+//        })
   }
 
 }
