@@ -37,6 +37,7 @@
         top:0;
         background: #fff;
         border-bottom: 0.01rem solid #ccc;
+        z-index:6;
     }
     .head .title{
         background: #e54847;
