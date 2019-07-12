@@ -1,12 +1,6 @@
 <template>
   <div class="home">
     <router-view></router-view>
-    <!--<ul class="footer">-->
-      <!--<li><router-link to="/home/movie"> 电影</router-link></li>-->
-      <!--<li><router-link to="/home/cinema"> 影院</router-link></li>-->
-        <!--<li><router-link to="/user"> 我的</router-link></li>-->
-    <!--</ul>-->
-
     <ul class="footer">
       <li>
         <router-link to="/home/movie">

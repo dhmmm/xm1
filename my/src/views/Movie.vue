@@ -3,7 +3,7 @@
         <div class="head">
             <div class="title">猫眼电影</div>
             <div class="title2">
-                <p>城市<span class="iconfont icon-jiantouarrow486"></span></p>
+                <p @click="goCity">{{city}}<span class="iconfont icon-jiantouarrow486"></span></p>
                 <h3>
                     <router-link to="/home/movie/nowplay">正在热映</router-link>
                 </h3>
@@ -23,11 +23,21 @@
 </template>
 
 <script>
-//    export default {
-//        created() {
-//            this.$router.push("/home/movie/nowplay")
-//        },
-//    }
+   export default {
+       data() {
+           return {
+               city:''
+           }
+       },
+       created() {
+           this.city= sessionStorage.getItem("city") || "北京"
+       },
+      methods: {
+          goCity(){
+              this.$router.push("/city")
+          }
+      },
+   }
 </script>
 
 <style scoped>
@@ -68,6 +78,7 @@
      .list{
          margin-top: 2rem;
      }
+
 </style>
 
 
