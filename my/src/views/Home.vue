@@ -1,10 +1,7 @@
 <template>
   <div class="home">
     <router-view></router-view>
-<<<<<<< HEAD
 
-=======
->>>>>>> f0e1b824ad2765b051501ce047d845096660143b
     <ul class="footer">
       <li>
         <router-link to="/home/movie">

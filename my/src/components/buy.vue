@@ -22,7 +22,7 @@
                 <p>{{movielist.pubDesc}}</p>
             </div>
             <div>
-                <span @click="godetail(id)"> > </span>
+                <span @click="godetail(movielist.id)"> > </span>
             </div>
         </div>
 
@@ -62,7 +62,7 @@
         },
         methods:{
             godetail(id){
-                this.$router.push({name:"detail",query:{movieId:id}});
+                this.$router.push("/detail/"+id);
             },
             back(){
                 this.$router.push("/");

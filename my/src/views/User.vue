@@ -33,7 +33,7 @@
 <style scoped>
     .my{
         background: #f8f8f8;
-        height:13rem;
+        height:15rem;
     }
     .header{
         background:#df2d2d ;

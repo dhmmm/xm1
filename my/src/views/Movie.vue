@@ -23,16 +23,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-    export default {
-        methods:{
-            go() {
-                this.$router.push("/search")
-            },
-        }
-
-    }
-=======
    export default {
        data() {
            return {
@@ -45,10 +35,12 @@
       methods: {
           goCity(){
               this.$router.push("/city")
-          }
+          },
+          go() {
+              this.$router.push("/search")
+          },
       },
    }
->>>>>>> f0e1b824ad2765b051501ce047d845096660143b
 </script>
 
 <style scoped>
