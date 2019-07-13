@@ -32,7 +32,8 @@ export default {
     },
     methods:{
         gobuy(id){
-            this.$router.push({name:"buy",query:{movieId:id}})
+//            this.$router.push({name:"buy",query:{movieId:id}})
+            this.$router.push("/buy/"+id);
         },
     },
     created(){

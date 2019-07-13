@@ -99,7 +99,7 @@ export default new Router({
         component:Signup,
       },
       {
-        path:'/buy',
+        path:'/buy/:id',
         name:'buy',
         component:Buy,
           children:[

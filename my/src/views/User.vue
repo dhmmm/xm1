@@ -4,10 +4,13 @@
             <span class="iconfont icon-jiantou-zuo" @click="gomovie"></span>
             <span>猫眼电影</span>
         </div>
-        <div class="nav">
-            <router-link to="/user/mtlogin"><p>美团账号登录</p></router-link>
-            <router-link to="/user/phologin"><p>手机验证登录</p></router-link>
+        <div>
+            <div class="nav">
+                <router-link to="/user/mtlogin"><p>美团账号登录</p></router-link>
+                <router-link to="/user/phologin"><p>手机验证登录</p></router-link>
+            </div>
         </div>
+
         <router-view></router-view>
         <div class="zc">
             <span @click="gosin">立即注册</span>

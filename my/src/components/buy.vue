@@ -29,7 +29,7 @@
         <!--选日期导航-->
         <!--吸顶-->
         <div class="daynav-top" v-show="vis.flag">
-            <router-link to="/buy/day">今天</router-link>
+            <router-link to="/buy/day/">今天</router-link>
             <router-link to="/buy/tomorrow">明天</router-link>
             <router-link to="/buy/afterday">后天</router-link>
         </div>
@@ -73,7 +73,9 @@
         },
         created(){
 //            this.$router.push("/buy/day")
-            this.id=this.$route.query.movieId;
+            this.id=this.$route.params.id
+
+//            this.id=this.$route.query.movieId;
             this.$axios.get("/my/ajax/detailmovie?movieId="+this.id).then((res)=>{
                 this.movielist=res.data.detailMovie;
 
