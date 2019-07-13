@@ -22,7 +22,8 @@
                 <p>{{movielist.pubDesc}}</p>
             </div>
             <div>
-                <span @click="godetail(movielist.id)"> > </span>
+                <!-- <span @click="godetail(movielist.id)"> > </span> -->
+                    <span @click="godetail()"> > </span>
             </div>
         </div>
 
@@ -54,7 +55,7 @@
         },
         data(){
             return {
-                id:'',
+               // id:'',
                 movielist:{},
                 vis:{flag:false},
                 index:0
@@ -62,6 +63,7 @@
         },
         methods:{
             godetail(id){
+                var id=sessionStorage.getItem("movieId");
                 this.$router.push("/detail/"+id);
             },
             back(){
@@ -73,10 +75,20 @@
         },
         created(){
 //            this.$router.push("/buy/day")
+<<<<<<< HEAD
             this.id=this.$route.params.id
 
 //            this.id=this.$route.query.movieId;
             this.$axios.get("/my/ajax/detailmovie?movieId="+this.id).then((res)=>{
+=======
+            //this.id=this.$route.query.movieId;
+           
+           
+           var id=sessionStorage.getItem("movieId")
+            this.$axios.get("/my/ajax/detailmovie?movieId="+id).then((res)=>{
+                console.log(res)
+                
+>>>>>>> 283976e344f20fc7a23b3eabe8bfc802b67ef0fb
                 this.movielist=res.data.detailMovie;
 
             })
@@ -109,7 +121,8 @@
     }
     .buy .head span:nth-of-type(2){
         position: relative;
-        left: 30%;
+        left: 11%;
+        display: inline-block;width: 68%;text-align: center;
     }
     .buy .filmlist{
         width: 100%;
