@@ -17,7 +17,7 @@
        <div class="topcity">
            <div class="city-title">热门城市 </div>
             <div class="city-list">
-                <div class="city-item" v-for="item in topCity"  >{{item}} </div>
+                <div class="city-item" v-for="item in topCity"  @click="changeTopCity(item)">{{item}} </div>
             </div>    
        </div>
 
@@ -43,7 +43,7 @@ export default {
             topCity:["上海","北京" ,"广州", "深圳", " 武汉" ,"天津", "西安", "南京"," 杭州"," 成都" ,"重庆"],
             //nearCity:[]
             nearCity:["上海", "南京",  "重庆"],
-            newCityList:[],
+            //newCityList:[],
         }
     },
     created() {
@@ -99,6 +99,15 @@ export default {
                     this.nearCity.unshift(name);
                 } 
         },
+        changeTopCity(name){
+            sessionStorage.setItem("city",name); 
+            this.citylist.forEach((item)=>{
+                if(item.name===name){
+                    sessionStorage.setItem("cityId",item.cityId); 
+                }
+            })
+            this.$router.go(-1);
+        }
         
     },
 }

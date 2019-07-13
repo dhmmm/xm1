@@ -83,12 +83,12 @@ export default {
     created() {
         this.$axios.get("/my/ajax/comingList?ci=55&token=&limit=10"
             ).then((res)=>{
-                //console.log(res.data.coming);
+                ///console.log(res);
                 this.comList=res.data.coming;
             });
         this.$axios.get("/my/ajax/mostExpected?ci=55&limit=10&offset=0&token="
             ).then((res)=>{
-                //console.log(res.data.coming);
+               // console.log(res);
                 this.lunboList=res.data.coming;
 
             });

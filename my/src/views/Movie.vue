@@ -81,7 +81,7 @@
      .list{
          margin-top: 2rem;
      }
-
+    .title2   .iconfont{font-size: 0.3rem;} 
 </style>
 
 
