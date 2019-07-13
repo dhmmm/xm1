@@ -1,11 +1,9 @@
 <template>
     <div>
-        详情页
-        {{$route.params.id}}
         <div class="detial">
             <div class="navbar">
-                <p class="navbar-back"> <span class="   iconfont icon-changyongicon-"></span></p> 
-                <div class="detial-title">狮子王</div>
+                <p class="navbar-back"   @click="goBack"> <span class="   iconfont icon-changyongicon-"></span></p> 
+                <div class="detial-title">{{movie.nm}}</div>
             </div>
             <!-- short des -->
             <div class="det-movie clear">
@@ -14,41 +12,78 @@
                 </div>
                 <div class="det-des">
                     <div class="det-des-name">
-                        <p>狮子王</p>
+                        <p>{{movie.nm}}</p>
                     </div>
-                    <div class="det-des-ename"> The Lion King</div>
+                    <div class="det-des-ename"> {{movie.enm}}</div>
                     <div class="det-des-wish">
-                        <p><span>185892</span> 人想看</p>
+                        <p><span>{{movie.wish}}</span> 人想看</p>
                     </div>
                     <div class="det-des-cat">
-                        <p>剧情,动画,冒险</p>
+                        <p>{{movie.cat}}</p>
                     </div>
                     <div class="det-des-nation">
-                        <p><span>美国</span>|<span>118分钟</span></p>
+                        <p><span>{{movie.src}}</span>/<span>{{movie.dur}} 分钟</span> </p>
                     </div>
                     <div class="det-des-show">
-                        <p><span>2019-07-12</span>大陆上映</p>
+                        <p>{{movie.pubDesc}}</p>
                     </div>
                 </div>
             </div>
 
             <!-- text content -->
             <div class="detial-content">
-                <p class="det-btn"> <span> 特惠购票</span> </p>
-                <div class="det-content">
-                    <p>
-                    小狮子王辛巴（唐纳德·格洛弗 配音）在众多热情的朋友的陪伴下，不但经历了生命中最光荣的时刻，
-                    也遭遇了最艰难的挑战，最后终于成为了森林之王，也在周而复始生生不息的自然中体会出生命的真义。
-                    非洲大草原上一轮红日冉冉升起，为高大的乞力马扎罗山披上层金色的光纱，所有的动物涌向了同一个地方——荣耀石，兴奋地等待着一个重大消息的宣布：它们的国王木法沙将迎来自己的新生儿。
-                    这个新生儿就是小狮子辛巴，它是木法沙的法定接班人、荣耀石未来的国王。
-                    </p>
-                    <div class="text-button">
-                        <span class="iconfont icon-jiantouarrow486"></span>
+                <div class="detial-cont"  ref="content">
+                    <p class="det-btn"> <span> 特惠购票</span> </p>
+                    <div class="det-content" ref="txt">
+                        <p>{{movie.dra}}</p>    
                     </div>
+                
+                </div>
+           
+                <div class="text-button" @click="changeH">
+                        <span class="iconfont icon-jiantouarrow486"></span>
                 </div>
             </div>
             <!-- start -->
-            <div class=""> 
+            <div class="starts"> 
+                <ul class="movie-start ">
+                    <li v-for="itm in  dirList">
+                        <img src="../assets/img/star1.png">
+                        <p class="movie-dir">{{itm}}</p>
+                    </li>
+                    <li  v-for="item in starList">
+                        <img src="../assets/img/star5.png">
+                        <p class="movie-dir">{{item}}</p>
+                    </li>
+                </ul>
+                <div class="movie-more">
+                    <h3>全体演职人员</h3>
+                </div>
+            </div>
+            <!-- media -->
+            <div class="section-media">
+                <h3>媒体库</h3>
+                <ul class="media-list">
+                    <li>
+                        <img src="../assets/img/show1.png">
+                    </li> 
+                    <li>
+                        <img src="../assets/img/show2.png">
+                    </li>
+                     <li>
+                        <img src="../assets/img/show3.png">
+                    </li>
+                     <li>
+                        <img src="../assets/img/show4.png">
+                    </li>
+                     <li>
+                        <img src="../assets/img/show5.png">
+                    </li>
+                </ul>
+                <div class="media-link">
+                    <h3><span>视频</span> </h3>
+                    <h3><span>剧照</span></h3>
+                </div>
             </div>
         </div>
        
@@ -57,13 +92,46 @@
 <script>
 
 export default {
+    data() {
+        return {
+            movie:{},
+            flag:true,
+            starList:[],
+            dirList:[]
+        }
+    },
     components:{
    
     },
-    created() {
-        console.log(this.$route)
-       // console.log(this.$route.params)  
+    methods: {
+        goBack(){
+            this.$router.go(-1)
+        },
+        changeH(){
+            this.flag=!this.flag
+            if(this.flag){
+            this.$refs.content.style.height="2rem";
+            this.$refs.content.style.overflow="hidden";
+            }else{
+            this.$refs.content.style.height="5.6rem";
+             this.$refs.txt.style.overflow="visible";
+            }
+        }
+
     },
+    created() {
+        var id=this.$route.params.id
+         this.$axios.get("/my/ajax/detailmovie?movieId="+id
+            ).then((res)=>{
+                //console.log(res.data.detailMovie);
+                this. movie=res.data.detailMovie;
+                this.starList=res.data.detailMovie.star.split(",");
+                this.dirList=res.data.detailMovie.dir.split(",")
+
+            });
+       
+        
+    },  
 
 }
 </script>
@@ -82,15 +150,28 @@ export default {
 .det-des-wish{ color: #f90; font-size: .34rem;margin: 0.2rem 0;}
 .det-des-cat,.det-des-nation,.det-des-show{font-size: .24rem;margin-bottom: .1rem;color: rgba(255,255,255,0.7);}
 
-.detial-content{padding: .3rem .3rem 0;border-bottom:0.2rem solid #F4F4F4}
+.detial-content{border-bottom:0.2rem solid #F4F4F4;}
+.detial-cont{padding: .3rem .3rem 0;}
 .det-btn{padding: .2rem;font-size: 16px;text-align: center; line-height: 1;background:#e54847;color: #fff; border-radius: 4px;margin: 0 0 .2rem; }
-.det-content{font-size: .3rem;color: #555;}
+.det-content{font-size: .3rem;color: #555;height: 1.16rem;overflow: hidden;}
 .det-content .icon{font-size: 1em;line-height: 1em;vertical-align: middle;color: #aaa;}
-.det-content .text-button{font-size: .3rem;color: #aaa;text-align: center;height: .44rem;}
+.text-button{font-size: .3rem;color: #aaa;text-align: center;height: .44rem;background: #fff;}
 
+.starts{border-bottom:0.2rem solid #F4F4F4;}
+.movie-start{padding: .3rem 0 .1rem .3rem; white-space: nowrap; overflow: auto;}
+.movie-start li{padding: 0 .03rem;text-align: center;display: inline-block;}
+.movie-start img{width: 1.3rem;height: 1.8rem;margin: .04rem;}
+.movie-start  .movie-dir{font-size: 0.22rem;color: #000;overflow: hidden;}
+.movie-more{border-top: 1px solid #e5e5e5;padding: 0 .3rem;line-height: .8rem;border-bottom: 1px solid #e5e5e5;}
+.movie-more h3{font-weight: lighter;color: #666;}
 
+.section-media{border-bottom:0.2rem solid #F4F4F4; }
+.section-media h3{padding: .2rem .3rem;color: #666;font-size: .3rem;line-height: 0.44rem;}
+.media-list{padding-left: .3rem;white-space: nowrap;    overflow-x: scroll;}
+.media-list li{display: inline-block;margin-right: 0.1rem;}
+.media-list img{width: 1.8rem;height: 1.4rem;}
 
-
-
+.media-link{line-height: 0.8rem;color: #666;font-size:0.3rem;padding-left: .3rem; }
+.media-link h3{font-weight: 400;display: inline-block;width: 41%;}
 </style>
 

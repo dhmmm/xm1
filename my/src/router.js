@@ -6,7 +6,8 @@ import  Movie  from './views/Movie.vue'
 import Cinema  from './views/Cinema.vue'
 import User  from './views/User.vue'
 import ComList from './components/ComList.vue'
-import Detail from './components/Detail.vue'
+import Detail from './components/detail.vue'
+import City from './components/city.vue'
 
 import Nowplay from './components/nowplay.vue'
 import Mtlogin from './components/mtlogin.vue'
@@ -30,7 +31,7 @@ export default new Router({
       //   redirect:{ name: 'home'}
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
       component: Detail
     },
@@ -85,6 +86,13 @@ export default new Router({
               },
           ]
       },
+     
+        {
+          path:'/city',
+          name:'city',
+          component:City,
+        },
+  
       {
         path:'/signup',
         name:'signup',

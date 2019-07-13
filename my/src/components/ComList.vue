@@ -22,7 +22,7 @@
         <!--films list  -->
         <div class="com-films">
             <ul>
-                <li class="clear"   v-for="(item,index) in comList" @click="goDetial(item.id,item.nm,item.star)" >
+                <li class="clear"   v-for="(item,index) in comList" @click="goDetial(item.id)" >
                     <div class="imgcon">
                         <img  :src="comImgList[index]"/>
                     </div>
@@ -94,18 +94,8 @@ export default {
             });
     },
     methods: {
-        goDetial(id,nm,start){
-            var params={id,nm,start}
-            //console.log(params)
-            this.$router.push({
-            name:'detail',
-            // path:'/detail/'+id,
-            params:params
-            //query: params
-
-            })
-
-           // this.$router.push("/detail/"+id);
+        goDetial(id){
+            this.$router.push("/detail/"+id);
         }
     },
 }
