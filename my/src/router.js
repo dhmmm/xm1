@@ -11,7 +11,12 @@ import Detail from './components/Detail.vue'
 import Nowplay from './components/nowplay.vue'
 import Mtlogin from './components/mtlogin.vue'
 import Phologin from './components/phologin.vue'
+import Signup from './components/signup.vue'
 import Buy from './components/buy.vue'
+import Day from './components/Day.vue';
+import Tomorrow from './components/Tomorrow.vue';
+import Afterday from './components/Afterday.vue';
+import Search from  './components/Search.vue'
 
 Vue.use(Router)
 
@@ -81,23 +86,38 @@ export default new Router({
           ]
       },
       {
+        path:'/signup',
+        name:'signup',
+        component:Signup,
+      },
+      {
         path:'/buy',
         name:'buy',
         component:Buy,
-      },
-      // {
-      //     path:'/detail',
-      //     name:'detail',
-      //     component:Detail,
-      // },
+          children:[
+            {
+                path:'/buy/day',
+                name:'day',
+                component:Day
+            },
+            {
+                path:'/buy/tomorrow',
+                name:'tomorrow',
+                component:Tomorrow,
+            },
+            {
+                path:'/buy/afterday',
+                name:'afterday',
+                component:Afterday,
+            }
+        ]
 
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      },
+      {
+          path:'/search',
+          name:'search',
+          component:Search,
+      }
+
   ]
 })

@@ -1,20 +1,23 @@
 <template>
   <div class="now">
+    <!--正在热映-->
       <ul>
-        <li v-for="film in movieList" @click="gobuy">
-          <img src="../../public/now.jpg"/>
-          <div class="filmxx">
-            <h3 class="filmnz">{{film.nm}}<span>{{film.version.slice(1)}}</span></h3>
-            <p v-if="film.sc!==0">观众评分：<span v-bind:class="['col']">{{film.sc}}</span></p>
-            <p v-else="film.sc===0"><span v-bind:class="['col']">{{film.wish}}</span>人想看</p>
-            <p class="start">主演：{{film.star}}</p>
-            <p>{{film.showInfo}}</p>
-          </div>
-          <div>
-            <p class="btn" v-if="film.showInfo.slice(0,2)==='今天'">购票</p>
-            <p class="btn1" v-else>预售</p>
-          </div>
-        </li>
+          <li v-for="film in movieList" @click="gobuy(film.id)">
+            <img src="../../public/now.jpg"/>
+            <div class="filmxx">
+              <h3 class="filmnz">{{film.nm}}<span>{{film.version.slice(1)}}</span></h3>
+              <p v-if="film.sc!==0">观众评分：<span v-bind:class="['col']">{{film.sc}}</span></p>
+              <p v-else="film.sc===0"><span v-bind:class="['col']">{{film.wish}}</span>人想看</p>
+              <p class="start">主演：{{film.star}}</p>
+              <p>{{film.showInfo}}</p>
+            </div>
+            <div>
+              <p class="btn" v-if="film.showInfo.slice(0,2)==='今天'">购票</p>
+              <p class="btn1" v-else>预售</p>
+            </div>
+
+          </li>
+
       </ul>
   </div>
 </template>
@@ -28,8 +31,8 @@ export default {
         }
     },
     methods:{
-        gobuy(){
-            this.$router.push("/buy")
+        gobuy(id){
+            this.$router.push({name:"buy",query:{movieId:id}})
         },
     },
     created(){

@@ -10,7 +10,7 @@
         </div>
         <router-view></router-view>
         <div class="zc">
-            <span>立即注册</span>
+            <span @click="gosin">立即注册</span>
             <span>找回密码</span>
         </div>
         <p class="tel">&copy;猫眼电影 客户服务 ：<span>400-670-5335</span></p>
@@ -22,6 +22,9 @@
         methods:{
             gomovie(){
                 this.$router.push("/home/movie/nowplay");
+            },
+            gosin(){
+                this.$router.push("/signup");
             }
         }
     }

@@ -4,6 +4,14 @@ import router from './router'
 import store from './store'
 import "./assets/flexble"
 import axios from 'axios'
+
+import "./module/module.js"
+import MintUI from 'mint-ui';
+import "mint-ui/lib/style.css"
+import "./module/api"
+
+Vue.use(MintUI);
+
 Vue.prototype.$axios=axios;
 Vue.config.productionTip = false
 

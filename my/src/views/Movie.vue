@@ -10,8 +10,8 @@
                 <h3>
                     <router-link to="/home/movie/coming" > 即将上映</router-link>
                 </h3>
-                <h3>
-                    <span class="iconfont icon-sousuo1" id="search"></span>
+                <h3 @click="go">
+                    <span class="iconfont icon-sousuo1" id="search" ></span>
                 </h3>
             </div>
 
@@ -23,11 +23,14 @@
 </template>
 
 <script>
-//    export default {
-//        created() {
-//            this.$router.push("/home/movie/nowplay")
-//        },
-//    }
+    export default {
+        methods:{
+            go() {
+                this.$router.push("/search")
+            },
+        }
+
+    }
 </script>
 
 <style scoped>
