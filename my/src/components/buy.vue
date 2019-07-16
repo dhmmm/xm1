@@ -75,20 +75,12 @@
         },
         created(){
 //            this.$router.push("/buy/day")
-<<<<<<< HEAD
-            this.id=this.$route.params.id
-
-//            this.id=this.$route.query.movieId;
-            this.$axios.get("/my/ajax/detailmovie?movieId="+this.id).then((res)=>{
-=======
             //this.id=this.$route.query.movieId;
-           
-           
+               
            var id=sessionStorage.getItem("movieId")
             this.$axios.get("/my/ajax/detailmovie?movieId="+id).then((res)=>{
                 console.log(res)
                 
->>>>>>> 283976e344f20fc7a23b3eabe8bfc802b67ef0fb
                 this.movielist=res.data.detailMovie;
 
             })
